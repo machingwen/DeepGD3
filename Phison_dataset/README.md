@@ -44,16 +44,16 @@ for seed in 1 1212 42
 do
     ckpt=./save/SupCon/phison_models/SupCon_phison_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_256_temp_0.1_trial_0/$seed/ckpt_best.pth
 
-    # training GMM
-    for NAME in 4 8 15 18 19 20 #1 2 3 5 6 7 11 16 17 21 22 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+    # training GMM  #1 2 3 5 6 7 11 16 17 21 22 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+    for NAME in 4 8 15 18 19 20 
         do
             CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 5
         done
-    for NAME in 0 9 10 12 13 14 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+    for NAME in 0 9 10 12 13 14 
         do
             CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 50
         done
-    for NAME in 1 2 3 5 6 7 11 16 17 21 22 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+    for NAME in 1 2 3 5 6 7 11 16 17 21 22 
         do
             CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 200
         done
