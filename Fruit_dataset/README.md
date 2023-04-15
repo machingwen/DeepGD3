@@ -3,7 +3,7 @@
 ## Dataset
 
 - **official dataset:**  
-	[official Fruit dataset](https://data.mendeley.com/datasets/bdd69gyhv8/1):  https://data.mendeley.com/datasets/bdd69gyhv8/1
+	[official Fruit dataset](https://data.mendeley.com/datasets/bdd69gyhv8/1)
 
 - **split dataset:**  
 	[split Fruit dataset](https://drive.google.com/file/d/1PYqgWDIzccpnbmzAtO0NSQ8r27H1wOpt/view?usp=sharing)  
