@@ -40,11 +40,12 @@ python3 -m ipykernel install --user
 ## Training and inference script
 ```shell
 gpu_num=0
-weight_path=./save/SupCon/phison_models/SupCon_phison_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_256_temp_0.1_trial_0/$seed/ckpt_best.pth
+weight_path=./save/SupCon/fruit_8_models/SupCon_fruit_8_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_128_temp_0.1_trial_0/$seed/ckpt_best.pth
 cd ~/SupContrast_Relabeled_Phison/OK/
 for seed in 1 1212 42
 do
-    CUDA_VISIBLE_DEVICES=$gpu_num python main.py --batch_size 256 --learning_rate 0.05 --seed $seed --epochs 30
+    CUDA_VISIBLE_DEVICES=$gpu_num python3 main.py --batch_size 128 --learning_rate 0.05 --seed $seed --epochs 30
+
     CUDA_VISIBLE_DEVICES=$gpu_num python3 tsne_gmm_test_set_image.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
 done
 ```
@@ -54,26 +55,18 @@ gpu_num=0
 # seed=22959 # 1,1212,42
 for seed in 1 1212 42
 do
-    ckpt=./save/SupCon/phison_models/SupCon_phison_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_256_temp_0.1_trial_0/$seed/ckpt_best.pth
+    ckpt=./save/SupCon/fruit_8_models/SupCon_fruit_8_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_128_temp_0.1_trial_0/$seed/ckpt_best.pth
 
     # training GMM
-    for NAME in 4 8 15 18 19 20 #1 2 3 5 6 7 11 16 17 21 22 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+    for NAME in 0 1 2 3 4 5 6 7 
         do
-            CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 5
-        done
-    for NAME in 0 9 10 12 13 14 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
-        do
-            CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 50
-        done
-    for NAME in 1 2 3 5 6 7 11 16 17 21 22 #0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
-        do
-            CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 200
+        CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 30
         done
 
     # testing Exp1 + GMM
     CUDA_VISIBLE_DEVICES=$gpu_num python3 Plot_GMM_TSNE.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
-    CUDA_VISIBLE_DEVICES=$gpu_num python3 BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
-    CUDA_VISIBLE_DEVICES=$gpu_num python3 test_GMM_BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
+    CUDA_VISIBLE_DEVICES=$gpu_num python3 BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding --gaussian_num 30
+    CUDA_VISIBLE_DEVICES=$gpu_num python3 test_GMM_BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding --gaussian_num 30
 done
 ```
 
