@@ -52,7 +52,7 @@ done
 ## GMM training and inference script
 ```shell
 gpu_num=0
-# seed=22959 # 1,1212,42
+# seed= 1,1212,42
 for seed in 1 1212 42
 do
     ckpt=./save/SupCon/fruit_8_models/SupCon_fruit_8_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_128_temp_0.1_trial_0/$seed/ckpt_best.pth
