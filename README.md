@@ -22,7 +22,7 @@ We found that general models perform poorly in detecting defects in new componen
 ## Model architecture
 
 - **Hybrid Expert:**
-<img src="img/HBE.png" alt="drawing" width="600"/>
+<img src="img/HBE.png" alt="drawing" width="900"/>
 
 
 ## Key technology
