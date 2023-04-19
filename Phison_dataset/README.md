@@ -24,7 +24,7 @@ python GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding
 ```
 - **Plotting t-SNE for Hybrid Expert Model and GMM Model**
 ```
-python ExtractedFeatures_plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
+python ExtractedFeatures_Plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
 
 python GMM_Features_Plotter.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
 ```
@@ -44,7 +44,7 @@ weight_path=./save/SupCon/phison_models/SupCon_phison_mobilenetv3_large_lr_0.05_
 for seed in 1 1212 42
 do
     CUDA_VISIBLE_DEVICES=$gpu_num python main.py --batch_size 256 --learning_rate 0.05 --seed $seed --epochs 30
-    CUDA_VISIBLE_DEVICES=$gpu_num python ExtractedFeatures_plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
+    CUDA_VISIBLE_DEVICES=$gpu_num python ExtractedFeatures_Plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
 done
 ```
 ## GMM training script
@@ -69,7 +69,7 @@ do
         done
 
     # testing Exp1 + GMM
-    CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_Features_Ploatter.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
+    CUDA_VISIBLE_DEVICES=$gpu_num python3 GMM_Features_Plotter.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
     CUDA_VISIBLE_DEVICES=$gpu_num python3 BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
 done
 ```
