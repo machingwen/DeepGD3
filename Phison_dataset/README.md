@@ -34,7 +34,7 @@ python BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --e
 ```
 - **Inference**
 ```
-CUDA_VISIBLE_DEVICES=$gpu_num python3 test_GMM_BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
+python Inference.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
 ```
 
 ## Hybrid Expert model training script
@@ -80,7 +80,7 @@ for seed in 1 1212 42
 do
     ckpt=./save/SupCon/phison_models/SupCon_phison_mobilenetv3_large_lr_0.05_decay_0.0001_bsz_256_temp_0.1_trial_0/$seed/ckpt_best.pth
 
-    CUDA_VISIBLE_DEVICES=$gpu_num python3 test_GMM_BayesOpt_GMM.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
+    CUDA_VISIBLE_DEVICES=$gpu_num python3 Inference.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
 done
 ```
 
