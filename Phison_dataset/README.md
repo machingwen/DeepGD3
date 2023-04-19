@@ -22,7 +22,7 @@ python main.py --batch_size 256 --learning_rate 0.05 --seed $seed --epochs 30
 ```
 python GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding --componentName $NAME --gaussian_num 5
 ```
-- **Plot t-SNE on Hybrid Expert model and GMM model**
+- **Plotting t-SNE for Hybrid Expert Model and GMM Model**
 ```
 python ExtractedFeatures_plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
 
