@@ -1,4 +1,4 @@
-# Phison-defect-detection-YWL
+# PCB-defect-detection-YWL
 
 ## Requirement
 ```
@@ -26,7 +26,7 @@ python GMM_train.py --seed $seed --ckpt $ckpt --embedding_layer shared_embedding
 ```
 python ExtractedFeatures_plotter.py --random_seed $seed --relabel --embedding_layer shared_embedding --checkpoint_path $ckpt
 
-python GMM_Features_Ploatter.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
+python GMM_Features_Plotter.py --batch_size 1024 --seed $seed --relabel --ckpt $ckpt --embedding_layer shared_embedding
 ```
 - **Bayesian optimization**
 ```
