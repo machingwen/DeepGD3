@@ -2,9 +2,9 @@
 
 ## Dataset
 
-[Phison dataset](https://github.com/jason211346/Phison-defect-detection-YWL/tree/main/Phison_dataset)  
-
-[Fruit dataset](https://github.com/jason211346/Phison-defect-detection-YWL/tree/main/Fruit_dataset)  
+[**PCB Dataset**](https://github.com/jason211346/Phison-defect-detection-YWL/tree/main/Phison_dataset) |  [**Fruit dataset**](https://github.com/jason211346/Phison-defect-detection-YWL/tree/main/Fruit_dataset)
+:-------------------------:|:-------------------------:
+<img src="PCB_dataset.png" alt="drawing" width="300"/> |  <img src="fruit_dataset.jpg" alt="drawing" width="295"/>
 
 
 ## Requirement
