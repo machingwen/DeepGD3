@@ -15,7 +15,7 @@ python3 -m ipykernel install --user
 ## Key technology
 - **Imblanced sample in Component:**
 - [x] Class Balanced Sampling
-- **Class Classifier:**
+- **Defect Detector:**
 - [x] CrossEntropy
 - **Component Embedding:**
 - [x] Multi-Similarity Loss
