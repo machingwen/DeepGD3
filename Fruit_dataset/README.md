@@ -1,4 +1,4 @@
-# Fruit-defect-detection-YWL
+# Fruit-Defect-Detection-YWL
 
 ## Dataset
 
