@@ -1,5 +1,4 @@
-#  DeepGD3_Plus
-
+#  DeepGD3
 We present our code on PCB Dataset and Fruit Dataset in two folder. Please go into the links below for more information.
 
 ## Dataset
