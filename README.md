@@ -20,8 +20,11 @@ We found that general models perform poorly in detecting defects in new componen
 
 ## Model architecture
 
-- **Hybrid Expert:**
+- **Hybrid Expert Training :**
 <img src="img/HBE.png" alt="drawing" width="900"/>
+
+- **Hybrid Expert inference :**
+<img src="img/HBE_inference.png" alt="drawing" width="900"/>
 
 
 ## Key technology
