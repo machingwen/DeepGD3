@@ -1,4 +1,4 @@
-# Phison-defect-detection-YWL
+#  DeepGD3_Plus
 
 We present our code on PCB Dataset and Fruit Dataset in two folder. Please go into the links below for more information.
 
